@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PHP运算符 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PHP运算符</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PHP运算符</h1><div class="post-meta"><a href="/2020/03/24/1/#comments" class="comment-count"></a><p><span class="date">Mar 24, 2020</span><span><a href="/categories/PHP/" class="category">PHP</a></span></p></div><div class="post-content"><h1 id="PHP运算符"><a href="#PHP运算符" class="headerlink" title="PHP运算符"></a>PHP运算符</h1><ul>
+<li>一元运算符：只对一个值进行运算，例如反运算符“！。</li>
+<li>二元运算符：对两个值进行运算，PHP所支持的运算符类型多为此类。</li>
+<li>三元运算符：运用一个值或表达式对另外两个值或表达式进行运算，属于条件语句。</li>
+</ul>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>算术运算符是用来进行四则运算的符号：</p>
+<table>
+<thead>
+<tr>
+<th>算术运算符</th>
+<th>说明</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加法</td>
+<td>$a+$b</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td>$a-$b</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>$a*$b</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法</td>
+<td>$a%$b</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余数</td>
+<td>$a%$b,得到相除的余数</td>
+</tr>
+</tbody></table>
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><p>“.”:表示两个字符串相连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a &#x3D; &quot;asd&quot;;</span><br><span class="line">$b &#x3D; &quot;fgh&quot;;</span><br><span class="line">echo $a.$b;  &#x2F;&#x2F;输出的结果是 &quot;asdfgh&quot;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>“=”:表示把右边的值赋值给左边的变量</p>
+<h6 id="组合运算符"><a href="#组合运算符" class="headerlink" title="组合运算符"></a>组合运算符</h6><table>
+<thead>
+<tr>
+<th>组合运算符</th>
+<th>说明</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.=</td>
+<td>把右边的字符加到左边</td>
+<td>$x .=$y 等价于 $x = $x.$y</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>把右边的值加到左边</td>
+<td>$x+=$y 等价于 $x = $x+$y</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>把右边的值减到左边</td>
+<td>$X-=$y 等价于 $x = $x-$y</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>把右边的值乘到左边</td>
+<td>$x<em>=$y 等价于 $x = $x</em>$y</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>把右边的值除到左边</td>
+<td>$x/=$y 等价于 $x = $x/$y</td>
+</tr>
+</tbody></table>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>按位与</td>
+<td>一假则假</td>
+</tr>
+<tr>
+<td>按位或</td>
+<td>按位或</td>
+<td>一真则真</td>
+</tr>
+<tr>
+<td>^</td>
+<td>按位异或</td>
+<td>相同为真</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位取反</td>
+<td>~0=1</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>向左移动</td>
+<td>$a&lt;&lt;$b,每移动一次，值乘以2</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>向右移动</td>
+<td>$a&gt;&gt;$b,每移动一次，值除以2</td>
+</tr>
+</tbody></table>
+<h3 id="递增和递减运算符"><a href="#递增和递减运算符" class="headerlink" title="递增和递减运算符"></a>递增和递减运算符</h3><ul>
+<li>前置递增和递减运算符，运算符置于变量前，先自增或自减再赋值</li>
+<li>后置递增和递减运算符，运算符置于变量后，先赋值再自增或自建</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>++$x</td>
+<td>前置递增</td>
+<td>$x=5;echo++$x; 表示变量x先加1，再返回结果值，显示结果为6</td>
+</tr>
+<tr>
+<td>–$x</td>
+<td>前置递减</td>
+<td>$x=5;echo–$x; 表示变量x先减1，再返回结果值，显示结果为4</td>
+</tr>
+<tr>
+<td>$x++</td>
+<td>后置递增</td>
+<td>$x=5;echo$x++; 表示变量x先返回结果值，再加1，显示结果为5</td>
+</tr>
+<tr>
+<td>$x–</td>
+<td>后置递减</td>
+<td>$x=5;echo$x–; 表示变量x先返回结果值，再减1，显示结果为5</td>
+</tr>
+</tbody></table>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and</td>
+<td>与</td>
+<td>$a and $b 当a，b都为true时，结果为true</td>
+</tr>
+<tr>
+<td>or</td>
+<td>或</td>
+<td>$a or $b 当a，b其中有一个为true，结果为true</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>异或</td>
+<td>当a,b两结果不同时结果为true</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>与</td>
+<td>$a&amp;&amp;$b 当a，b都为true时，结果为true</td>
+</tr>
+<tr>
+<td>或</td>
+<td>或</td>
+<td></td>
+</tr>
+<tr>
+<td>!</td>
+<td>非</td>
+<td>!$m 当$m为真时，返回结果为假</td>
+</tr>
+</tbody></table>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>==</td>
+<td>等于</td>
+<td>比较数值是否相等</td>
+</tr>
+<tr>
+<td>===</td>
+<td>全等于</td>
+<td>比较数值和类型是否相等</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+<td>比较数值是否不等</td>
+</tr>
+<tr>
+<td>!==</td>
+<td>全不等</td>
+<td>比较数值和类型是否全不等</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等于</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;=&gt;</td>
+<td>组合比较符</td>
+<td>a&gt;b返回1，a=b返回0，a&lt;b返回-1</td>
+</tr>
+<tr>
+<td>??</td>
+<td>空合并符</td>
+<td>返回从左到右第一个不为NULL的变量</td>
+</tr>
+</tbody></table>
+<h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表达式1？ 表达式2：表达式3</span><br></pre></td></tr></table></figure>
+
+<p>若表达式为true，则运行表达式2，否则运行表达式3</p>
+<p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a &#x3D;50</span><br><span class="line">echo($a &#x3D;&#x3D;true)?&quot;yes&quot;:&quot;no&quot;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误运算符"><a href="#错误运算符" class="headerlink" title="错误运算符"></a>错误运算符</h3><p>@为错误运算符，加在表达式前边，则表达式的错误会被忽略。</p>
+<p>@只对表达式有效：</p>
+<p>只能放在变量、常量、函数和include调用之前等。<strong>不能</strong>用在函数和类定义之前以及条件结构之前使用</p>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>结合方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>clone、new</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2</td>
+<td>**</td>
+<td>右</td>
+</tr>
+<tr>
+<td>3</td>
+<td>++ – ~ (int) (float) (array) (string) (object) (bool) @</td>
+<td>右</td>
+</tr>
+<tr>
+<td>4</td>
+<td>instanceof</td>
+<td>无</td>
+</tr>
+<tr>
+<td>5</td>
+<td>!</td>
+<td>右</td>
+</tr>
+<tr>
+<td>6</td>
+<td>* / %</td>
+<td>左</td>
+</tr>
+<tr>
+<td>7</td>
+<td>+ - .</td>
+<td>左</td>
+</tr>
+<tr>
+<td>8</td>
+<td>&lt;&lt; &gt;&gt;</td>
+<td>左</td>
+</tr>
+<tr>
+<td>9</td>
+<td>&lt; &lt;= &gt; &gt;=</td>
+<td>无</td>
+</tr>
+<tr>
+<td>10</td>
+<td>== === != !==</td>
+<td>无</td>
+</tr>
+<tr>
+<td>11</td>
+<td>&amp;</td>
+<td>无</td>
+</tr>
+<tr>
+<td>12</td>
+<td>^</td>
+<td>无</td>
+</tr>
+<tr>
+<td>13</td>
+<td>按位或</td>
+<td>左</td>
+</tr>
+<tr>
+<td>14</td>
+<td>或 &amp;&amp;</td>
+<td>左</td>
+</tr>
+<tr>
+<td>15</td>
+<td>?: ??</td>
+<td>左</td>
+</tr>
+<tr>
+<td>16</td>
+<td>= += -= <em>= /= *</em>= %= &amp;= ^= &lt;&lt;= &gt;&gt;=</td>
+<td>右</td>
+</tr>
+<tr>
+<td>17</td>
+<td>and or xor</td>
+<td>左</td>
+</tr>
+</tbody></table>
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://yoursite.com/2020/03/24/1/">http://yoursite.com/2020/03/24/1/</a></p><p>版权声明: 转载请注明出处呀!!</p></blockquote></div><div class="tags"><a href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/03/24/2/" class="pre">PHP变量</a><a href="/2020/03/24/%E5%8F%B3%E4%BE%A7%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%88%86%E7%B1%BB%E4%B8%80%E6%A0%8F/" class="next">hexo博客搭建</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP运算符"><span class="toc-text">PHP运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符"><span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串运算符"><span class="toc-text">字符串运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符"><span class="toc-text">赋值运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#组合运算符"><span class="toc-text">组合运算符</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位运算符"><span class="toc-text">位运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递增和递减运算符"><span class="toc-text">递增和递减运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑运算符"><span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较运算符"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件运算符"><span class="toc-text">条件运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误运算符"><span class="toc-text">错误运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符优先级"><span class="toc-text">运算符优先级</span></a></li></ol></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/6/">PHP流程控制语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/4/">PHP函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/3/">PHP常量</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/2/">PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/1/">PHP运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/%E5%8F%B3%E4%BE%A7%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%88%86%E7%B1%BB%E4%B8%80%E6%A0%8F/">hexo博客搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/22/PHP%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">PHP数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">7</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
