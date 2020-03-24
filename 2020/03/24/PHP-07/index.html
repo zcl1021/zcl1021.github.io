@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PHP字符串操作函数 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PHP字符串操作函数</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PHP字符串操作函数</h1><div class="post-meta"><a href="/2020/03/24/PHP-07/#comments" class="comment-count"></a><p><span class="date">Mar 24, 2020</span><span><a href="/categories/PHP/" class="category">PHP</a></span></p></div><div class="post-content"><h3 id="1、字符串的连接"><a href="#1、字符串的连接" class="headerlink" title="1、字符串的连接"></a>1、字符串的连接</h3><p>（1）使用“.”进行连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo &quot;abc&quot;.&quot;cba&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(2)implode() 将数组元素按照某种方式依次连接成字符串</p>
+<h3 id="2、字符串长度的获取"><a href="#2、字符串长度的获取" class="headerlink" title="2、字符串长度的获取"></a>2、字符串长度的获取</h3><p><strong>strlen()</strong> 获取字符串额长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strlen(string)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、字符串的去除"><a href="#3、字符串的去除" class="headerlink" title="3、字符串的去除"></a>3、字符串的去除</h3><p>(1) <strong>trim()</strong> 去除字符串首尾空白等特殊符号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trim(str[,转义字符])</span><br></pre></td></tr></table></figure>
+
+<p>(2) <strong>itrim()</strong> 去除字符串首部空白等特殊符号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">itrim(str[,转义字符])</span><br></pre></td></tr></table></figure>
+
+<p>(3) <strong>rtrim()</strong> 去除字符串尾部空白等特殊符号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtrim(str[,转义字符])</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、字符串的分割"><a href="#4、字符串的分割" class="headerlink" title="4、字符串的分割"></a>4、字符串的分割</h3><p>(1) <strong>explode()</strong> 将字符串按某种分隔符转化为数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explode(&quot;.&quot;,$arr);</span><br></pre></td></tr></table></figure>
+
+<p>(2)<strong>str_split()</strong> 将字符串按照长度分割成数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str_spplit($arr,len);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、字符串的检索"><a href="#5、字符串的检索" class="headerlink" title="5、字符串的检索"></a>5、字符串的检索</h3><p>(1)<strong>strpos()</strong>返回要查找的字符串第一次出现位置的下标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strops($str,&#39;needle&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>(2)<strong>strrpos()</strong> 返回要查找的字符串最后出现的位置的下标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strrops($str,&#39;needle&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>(3)<strong>stripos()</strong> 与strpos()相同，不区分大小写</p>
+<p>(4)<strong>strripos()</strong> 与strrpos(相同，不区分大小写</p>
+<p>(5)<strong>strstr()</strong> 查找指定字符串首次出现的位置，并返回他和他之后的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strstr($str,&#39;needle&#39;,[false&#x2F;true]);</span><br></pre></td></tr></table></figure>
+
+<p>默认为false,如果为true，则返回他之前的字符串（不包括他）</p>
+<p>(6)<strong>strrchr()</strong> 查找指定字符串最后出现的位置，并返回他和他之后的字符串</p>
+<p>(7)<strong>stristr()</strong> 与strstr()一致，不区分大小写</p>
+<p>(8)<strong>substr_count()</strong> 检索指定字符串在字符串中出现的次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr_count($str,&#39;needle&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h3><p>(1)<strong>substr()</strong> 用来截取字符串的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr(&quot;str&quot;,&#39;开始的位置&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的替换"><a href="#字符串的替换" class="headerlink" title="字符串的替换"></a>字符串的替换</h3><p>(1) <strong>substr_raplace()</strong> 将字符串的一部分替换成另一个字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr_replace($str,&quot;要插入的字符串&quot;，&#39;开始的位置&#39;,&#39;[要替换的长度]&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>(2)<strong>str_replace()</strong> 所有满足替换条件的字符都会替换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sre_replace(&#39;要替换的字符串&#39;，&#39;替换成什么字符串&#39;，&#39;字符串&#39;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的翻转"><a href="#字符串的翻转" class="headerlink" title="字符串的翻转"></a>字符串的翻转</h3><p><strong>strrev()</strong> 实现字符串的翻转</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strrev(要反转的字符串)；</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h3><p>(1)<strong>strcmp()和strcasecmp()函数</strong></p>
+<p>这两个函数都是按字节进行字符串比较，其中strcmp（）函数区分大小写，strcasecmp()不区分大小写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strcmp(&#39;字符串1&#39;,&#39;字符串2&#39;);</span><br><span class="line">strcasecmp(&#39;字符串1&#39;,&#39;字符串2&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>(2)<strong>strnatcmp()</strong> 按自然排序法进行字符串比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strnatcmp(str1,str2);</span><br></pre></td></tr></table></figure>
+
+<p>(3)<strong>strncmp()</strong> 根据指定的长度比较两个字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strncmp(str1,str2,length);</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的大小写"><a href="#字符串的大小写" class="headerlink" title="字符串的大小写"></a>字符串的大小写</h3><ul>
+<li>strtoupper():将字符串转换成大写</li>
+<li>strtolower():将字符串转为小写</li>
+<li>ucfirst()：将字符串的第一个字母大写，如果第一个字符不是字母，则忽视</li>
+<li>ucwords():将字符串中每一个单词的首字母大写</li>
+</ul>
+<h3 id="字符串的重复"><a href="#字符串的重复" class="headerlink" title="字符串的重复"></a>字符串的重复</h3><p><strong>str_repeat()</strong>:重复一个字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str_repeat(string,重复的次数)</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的加密"><a href="#字符串的加密" class="headerlink" title="字符串的加密"></a>字符串的加密</h3><p>(1)<strong>md5()</strong> 使用md5算法对字符串进行加密。</p>
+<p>(2)<strong>sha1()</strong> 使用SHA算法进行字符串加密</p>
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://yoursite.com/2020/03/24/PHP-07/">http://yoursite.com/2020/03/24/PHP-07/</a></p><p>版权声明: 转载请注明出处呀!!</p></blockquote></div><div class="tags"><a href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/03/24/PHP-08/" class="pre">PHP操作mysql数据库</a><a href="/2020/03/24/PHP-06/" class="next">PHP流程控制语句</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、字符串的连接"><span class="toc-text">1、字符串的连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字符串长度的获取"><span class="toc-text">2、字符串长度的获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、字符串的去除"><span class="toc-text">3、字符串的去除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、字符串的分割"><span class="toc-text">4、字符串的分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、字符串的检索"><span class="toc-text">5、字符串的检索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的截取"><span class="toc-text">字符串的截取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的替换"><span class="toc-text">字符串的替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的翻转"><span class="toc-text">字符串的翻转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串比较"><span class="toc-text">字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的大小写"><span class="toc-text">字符串的大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的重复"><span class="toc-text">字符串的重复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的加密"><span class="toc-text">字符串的加密</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-18/">PHP数组函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-17/">PHP日期时间函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-16/">PHP数字函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-15/">PHP——PDO</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-14/">PHP魔术方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-13/">PHP面对对象程序设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-12/">PHP与Web页面交互</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-11/">PHP图形图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-10/">PHP文件目录的操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-09/">PHP文件系统操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">19</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>

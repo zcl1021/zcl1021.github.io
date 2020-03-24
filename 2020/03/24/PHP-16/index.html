@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PHP数字函数 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PHP数字函数</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PHP数字函数</h1><div class="post-meta"><a href="/2020/03/24/PHP-16/#comments" class="comment-count"></a><p><span class="date">Mar 24, 2020</span><span><a href="/categories/PHP/" class="category">PHP</a></span></p></div><div class="post-content"><h4 id="随机数函数"><a href="#随机数函数" class="headerlink" title="随机数函数"></a>随机数函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rand($min,$max)</td>
+<td>返回指定范围内的随机数</td>
+</tr>
+<tr>
+<td>Mt_rand($min,$max)</td>
+<td>返回指定范围内的随机数(推荐使用)</td>
+</tr>
+</tbody></table>
+<h4 id="绝对值函数"><a href="#绝对值函数" class="headerlink" title="绝对值函数"></a>绝对值函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Abs($number)</td>
+<td>返回数字的绝对值</td>
+</tr>
+</tbody></table>
+<h4 id="最大最小值函数"><a href="#最大最小值函数" class="headerlink" title="最大最小值函数"></a>最大最小值函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Min()</td>
+<td>返回最小值</td>
+</tr>
+<tr>
+<td>Max()</td>
+<td>返回最大值</td>
+</tr>
+</tbody></table>
+<h4 id="取整函数"><a href="#取整函数" class="headerlink" title="取整函数"></a>取整函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Round($float)</td>
+<td>四舍五入函数</td>
+</tr>
+<tr>
+<td>Floor($float)</td>
+<td>舍去取整函数</td>
+</tr>
+<tr>
+<td>Ceil($float)</td>
+<td>进一取整函数</td>
+</tr>
+</tbody></table>
+<h4 id="取余函数"><a href="#取余函数" class="headerlink" title="取余函数"></a>取余函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fmod($x,$y)</td>
+<td>取余函数(允许除数为0)</td>
+</tr>
+</tbody></table>
+<h4 id="平方次方函数"><a href="#平方次方函数" class="headerlink" title="平方次方函数"></a>平方次方函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pow($base,$exp)</td>
+<td>返回$base的$exp次方</td>
+</tr>
+<tr>
+<td>Sqrt($number)</td>
+<td>返回数字的平方根</td>
+</tr>
+</tbody></table>
+<h4 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Deg2rad($number)</td>
+<td>角度转弧度</td>
+</tr>
+<tr>
+<td>Sin($number)</td>
+<td>返回参数的正弦值</td>
+</tr>
+<tr>
+<td>Cos($number)</td>
+<td>返回参数的余弦值</td>
+</tr>
+<tr>
+<td>Tan($number)</td>
+<td>返回参数的正切值</td>
+</tr>
+</tbody></table>
+<h4 id="进制转换函数"><a href="#进制转换函数" class="headerlink" title="进制转换函数"></a>进制转换函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>二进制：</td>
+<td>bin</td>
+</tr>
+<tr>
+<td>八进制：</td>
+<td>oct</td>
+</tr>
+<tr>
+<td>十进制：</td>
+<td>dec</td>
+</tr>
+<tr>
+<td>十六进制：</td>
+<td>hex</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bindec($int)</td>
+<td>二进制转十进制</td>
+</tr>
+<tr>
+<td>decbin($int)</td>
+<td>十进制转二进制</td>
+</tr>
+<tr>
+<td>Octdec($int)</td>
+<td>八进制转十进制</td>
+</tr>
+<tr>
+<td>decoct($int)</td>
+<td>十进制转八进制</td>
+</tr>
+<tr>
+<td>Hexdec($int)</td>
+<td>十六进制转十进制</td>
+</tr>
+<tr>
+<td>dechex($int)</td>
+<td>十进制转十六进制</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">二进制以0b开头		八进制以O开头		十六进制以0x开头</span><br></pre></td></tr></table></figure>
+
+<h4 id="常量函数"><a href="#常量函数" class="headerlink" title="常量函数"></a>常量函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pi()表示π</span><br><span class="line">Exp()计算e的指数</span><br></pre></td></tr></table></figure></div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://yoursite.com/2020/03/24/PHP-16/">http://yoursite.com/2020/03/24/PHP-16/</a></p><p>版权声明: 转载请注明出处呀!!</p></blockquote></div><div class="tags"><a href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/03/24/PHP-17/" class="pre">PHP日期时间函数</a><a href="/2020/03/24/PHP-15/" class="next">PHP——PDO</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#随机数函数"><span class="toc-text">随机数函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绝对值函数"><span class="toc-text">绝对值函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最大最小值函数"><span class="toc-text">最大最小值函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取整函数"><span class="toc-text">取整函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取余函数"><span class="toc-text">取余函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平方次方函数"><span class="toc-text">平方次方函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三角函数"><span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进制转换函数"><span class="toc-text">进制转换函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常量函数"><span class="toc-text">常量函数</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-18/">PHP数组函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-17/">PHP日期时间函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-16/">PHP数字函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-15/">PHP——PDO</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-14/">PHP魔术方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-13/">PHP面对对象程序设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-12/">PHP与Web页面交互</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-11/">PHP图形图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-10/">PHP文件目录的操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-09/">PHP文件系统操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">19</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PHP文件系统操作 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PHP文件系统操作</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PHP文件系统操作</h1><div class="post-meta"><a href="/2020/03/24/PHP-09/#comments" class="comment-count"></a><p><span class="date">Mar 24, 2020</span><span><a href="/categories/PHP/" class="category">PHP</a></span></p></div><div class="post-content"><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>文件操作基本步骤如下：</p>
+<ul>
+<li>打开文件</li>
+<li>读写文件，包括显示文件内容、编辑内容、写入内容等操作。</li>
+<li>关闭文件</li>
+</ul>
+<h6 id="打开和关闭文件"><a href="#打开和关闭文件" class="headerlink" title="打开和关闭文件"></a>打开和关闭文件</h6><p>fopen（）函数可以用来进行打开文件的操作。</p>
+<p>fclose（）函数可以用来进行关闭文件的操作。</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>以只读方式打开，将文件指针指向文件头</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>以读写方式打开，将文件指针指向文件头</td>
+</tr>
+<tr>
+<td>w</td>
+<td>以写入方式打开，清除文件内容，如果文件不存在则尝试创建该文件</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>以读写方式打开，清除文件内容，如果文件不存在则尝试创建改文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td>以写入方式打开，将文件指针指向文件末尾进行写入，如果文件不存在则尝试创建该文件</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>以读写方式打开，将文件指针指向文件末尾进行写入，如果文件不存在则尝试创建该文件</td>
+</tr>
+<tr>
+<td>x</td>
+<td>创建一个新的文件以写入方式打开，如果文件存在则返回false</td>
+</tr>
+<tr>
+<td>x+</td>
+<td>创建一个新的文件并以读写方式打开，如果文件已经存在则返回false</td>
+</tr>
+</tbody></table>
+<p>fclose()的函数语法格式如下： fclose（resource handle）</p>
+<p>在文件操作结束后，应关闭文件，否则会引发错误。</p>
+<h3 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h3><h6 id="读取整个文件"><a href="#读取整个文件" class="headerlink" title="读取整个文件"></a>读取整个文件</h6><p>（1）readfile()，读入一个文件，并将其写入输出缓冲中，如果出现错误，则返回false。</p>
+<p>（2）file(),读取一个文件，返回值是一个数组</p>
+<p>（3）file_get_contents(),将文件内容读入一个字符串中</p>
+<h6 id="读取一行字符"><a href="#读取一行字符" class="headerlink" title="读取一行字符"></a>读取一行字符</h6><p>（1）fgets(‘文件’，[长度])，读取的长度为长度-1</p>
+<p>（2）fegtss(‘文件’，[长度])，会过滤掉内容中的HTML和PHP标记</p>
+<h6 id="读取一个字符"><a href="#读取一个字符" class="headerlink" title="读取一个字符"></a>读取一个字符</h6><p>fgetc()，用来读取单个字符</p>
+<h6 id="读取一定长度的字符"><a href="#读取一定长度的字符" class="headerlink" title="读取一定长度的字符"></a>读取一定长度的字符</h6><p>file_get_contents(),读取以一定长度的字符</p>
+<h3 id="写入文件内容"><a href="#写入文件内容" class="headerlink" title="写入文件内容"></a>写入文件内容</h3><p>(1) fputs(文件路径，写入的内容，长度) (2)fwrite(文件路径，写入的内容，长度) (3)file_put_contents()</p>
+<h3 id="文件属性函数"><a href="#文件属性函数" class="headerlink" title="文件属性函数"></a>文件属性函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>filesize(完整路径文件名)</td>
+<td>获取一个文件的大小（字节）</td>
+</tr>
+<tr>
+<td>filectime(完整路径文件名)</td>
+<td>获取文件的创建时间</td>
+</tr>
+<tr>
+<td>filemtime(完整路径文件名)</td>
+<td>获取文件的修改时间</td>
+</tr>
+<tr>
+<td>fileatime(完整路径文件名)</td>
+<td>获取文件的访问时间</td>
+</tr>
+<tr>
+<td>realpath(完整路径文件名)</td>
+<td>获取规范化绝对路径</td>
+</tr>
+<tr>
+<td>stat(完整路径文件名)</td>
+<td>获取文件统计信息</td>
+</tr>
+<tr>
+<td>pathinfo()</td>
+<td>获取path信息</td>
+</tr>
+</tbody></table>
+<h3 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fopen(完整路径文件名，参数)</td>
+<td>打开文件(r：只读，w：写入，x：创建写入)</td>
+</tr>
+<tr>
+<td>fread(资源，长度)</td>
+<td>读取文件 长度：字节</td>
+</tr>
+<tr>
+<td>fwrite(资源,内容)</td>
+<td>写入内容</td>
+</tr>
+<tr>
+<td>fclose(资源)</td>
+<td>关闭文件(资源)，释放内存</td>
+</tr>
+<tr>
+<td>filegetcontents(完整路径名称)</td>
+<td>相当于 fopen fread fclose组合动作</td>
+</tr>
+<tr>
+<td>fileputcontenrs(完整路径名称)</td>
+<td>相当于 fopen fwrite fclsoe组合动作</td>
+</tr>
+<tr>
+<td>readfile()</td>
+<td>将内容读入内存缓冲区</td>
+</tr>
+<tr>
+<td>copy(源文件，目标文件)</td>
+<td>拷贝文件（如果目标文件已存在，将会被覆盖）</td>
+</tr>
+<tr>
+<td>unlink(完整路径文件名)</td>
+<td>删除文件</td>
+</tr>
+</tbody></table>
+<h3 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rewind()</td>
+<td>将指针移动到开头</td>
+</tr>
+<tr>
+<td>fefo()</td>
+<td>判断是否到文件结束的位置</td>
+</tr>
+<tr>
+<td>fseek()</td>
+<td>移动指针到指定的位置，在移动成功是返回0，失败时返回-1</td>
+</tr>
+<tr>
+<td>ftell()</td>
+<td>返回指针的位置</td>
+</tr>
+</tbody></table>
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://yoursite.com/2020/03/24/PHP-09/">http://yoursite.com/2020/03/24/PHP-09/</a></p><p>版权声明: 转载请注明出处呀!!</p></blockquote></div><div class="tags"><a href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/03/24/PHP-10/" class="pre">PHP文件目录的操作</a><a href="/2020/03/24/PHP-08/" class="next">PHP操作mysql数据库</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#打开和关闭文件"><span class="toc-text">打开和关闭文件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件内容"><span class="toc-text">读取文件内容</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#读取整个文件"><span class="toc-text">读取整个文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#读取一行字符"><span class="toc-text">读取一行字符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#读取一个字符"><span class="toc-text">读取一个字符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#读取一定长度的字符"><span class="toc-text">读取一定长度的字符</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件内容"><span class="toc-text">写入文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件属性函数"><span class="toc-text">文件属性函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作函数"><span class="toc-text">文件操作函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件指针"><span class="toc-text">文件指针</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-18/">PHP数组函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-17/">PHP日期时间函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-16/">PHP数字函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-15/">PHP——PDO</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-14/">PHP魔术方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-13/">PHP面对对象程序设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-12/">PHP与Web页面交互</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-11/">PHP图形图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-10/">PHP文件目录的操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-09/">PHP文件系统操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">19</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>

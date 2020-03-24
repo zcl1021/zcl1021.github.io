@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PHP操作mysql数据库 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PHP操作mysql数据库</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PHP操作mysql数据库</h1><div class="post-meta"><a href="/2020/03/24/PHP-08/#comments" class="comment-count"></a><p><span class="date">Mar 24, 2020</span><span><a href="/categories/PHP/" class="category">PHP</a></span></p></div><div class="post-content"><p>步骤：</p>
+<p>1、<strong>连接数据库函数</strong></p>
+<p>mysqli_connect(主机名，用户名，密码) 返回值是我们一个连接的对象，如何连接失败，报错并且返回false</p>
+<p>2、<strong>判断错误</strong> mysqli_connect_error(连接对象)</p>
+<p>错误信息，返回错误信息</p>
+<p>mysqli_connect_errno(连接对象)</p>
+<p>错误号，0代表连接成功，没有错误</p>
+<p>3、<strong>选择连接数据库函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqli_selecr_db(连接对象，要选择的数据库名)</span><br></pre></td></tr></table></figure>
+
+<p>如果选择成功返回true，否则返回false</p>
+<p>4、<strong>选择字符集</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqli_set_charset(连接对象，要选择的字符集)</span><br></pre></td></tr></table></figure>
+
+<p>如果选择成功返回true，否则返回flase</p>
+<p>5、<strong>发送sql语句</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqli_query(连接对象，要发送的sql语句)</span><br></pre></td></tr></table></figure>
+
+<p>成功得到一个结果集对象，失败返回false</p>
+<p>6、<strong>处理结果</strong></p>
+<h6 id="6-1获取条目数"><a href="#6-1获取条目数" class="headerlink" title="6.1获取条目数"></a>6.1获取条目数</h6><p>a、mysqli_num_rows(结果集对象)</p>
+<p>用来获取查询得到的集录条数</p>
+<p>仅对select有效</p>
+<p>b、mysqli_affected_rows(连接对象)</p>
+<p>前一次MySQL操作的受影响行数，就是影响了几行。</p>
+<p>类型INSERT UPDATE DELETE 操作使用</p>
+<p>返回值 大于0的整数成功 -1失败</p>
+<h6 id="6-2获取查询的结果集的内容"><a href="#6-2获取查询的结果集的内容" class="headerlink" title="6.2获取查询的结果集的内容"></a>6.2获取查询的结果集的内容</h6><p>1、mysqli_fetch_array(结果集对象)</p>
+<p>将查询结果以混合数组的形式返回，一次返回一条</p>
+<p>2、mysqli_feach_row(结果集对象)</p>
+<p>将查询结果以索引数组的形式返回，一次返回一条</p>
+<p>3、mysqli_fetch_assoc(结果集对象)</p>
+<p>将查询结果以关联数组的形式返回，一次返回一条</p>
+<p>4、mysqli_fech_object(结果集对象)</p>
+<p>返回的是对象，其中键名是对象成员属性名</p>
+<h6 id="6-3获取上一次插入的ID"><a href="#6-3获取上一次插入的ID" class="headerlink" title="6.3获取上一次插入的ID"></a>6.3获取上一次插入的ID</h6><p>mysqil_insert_id(连接对象)</p>
+<p>将上一次插入的数据id返回</p>
+<p>7、<strong>关闭数据库</strong> mysqli_close(连接对象)</p>
+<p>关闭数据库</p>
+<p><strong>汇总</strong></p>
+<table>
+<thead>
+<tr>
+<th>面对对象</th>
+<th>面对过程</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>free()、close()、free_result()</td>
+<td>mysqli_free_result()</td>
+<td>释放结果集占用的内存</td>
+</tr>
+<tr>
+<td>fetch_row()</td>
+<td>mysqli_fetch_row()</td>
+<td>以索引数组方式返回一行数据</td>
+</tr>
+<tr>
+<td>fetch_assoc()</td>
+<td>mysqli_fetch_assoc()</td>
+<td>以关联数组的方式返回一行数据</td>
+</tr>
+<tr>
+<td>fetch_array()</td>
+<td>mysqli_fetch_array()</td>
+<td>以混合数组的方式返回一行数据</td>
+</tr>
+<tr>
+<td>fetch_object()</td>
+<td>mysali_fetch_object()</td>
+<td>以对象的方式返回一行数据</td>
+</tr>
+<tr>
+<td>data_seek()</td>
+<td>mysqli_data_seek()</td>
+<td>移动结果集中的指针到任意行</td>
+</tr>
+<tr>
+<td>num_rows()</td>
+<td>mysqli_num_rows()</td>
+<td>获取结果集中行的数量</td>
+</tr>
+</tbody></table>
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://yoursite.com/2020/03/24/PHP-08/">http://yoursite.com/2020/03/24/PHP-08/</a></p><p>版权声明: 转载请注明出处呀!!</p></blockquote></div><div class="tags"><a href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/03/24/PHP-09/" class="pre">PHP文件系统操作</a><a href="/2020/03/24/PHP-07/" class="next">PHP字符串操作函数</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#6-1获取条目数"><span class="toc-text">6.1获取条目数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-2获取查询的结果集的内容"><span class="toc-text">6.2获取查询的结果集的内容</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-3获取上一次插入的ID"><span class="toc-text">6.3获取上一次插入的ID</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-18/">PHP数组函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-17/">PHP日期时间函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-16/">PHP数字函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-15/">PHP——PDO</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-14/">PHP魔术方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-13/">PHP面对对象程序设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-12/">PHP与Web页面交互</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-11/">PHP图形图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-10/">PHP文件目录的操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-09/">PHP文件系统操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">19</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PHP图形图像处理 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PHP图形图像处理</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PHP图形图像处理</h1><div class="post-meta"><a href="/2020/03/24/PHP-11/#comments" class="comment-count"></a><p><span class="date">Mar 24, 2020</span><span><a href="/categories/PHP/" class="category">PHP</a></span></p></div><div class="post-content"><h3 id="创建画布"><a href="#创建画布" class="headerlink" title="创建画布"></a>创建画布</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">resource imagecreate(int x,int y)&#x2F;&#x2F;创建画布</span><br><span class="line">resource imagecreatetruecolor(int x,inty)</span><br></pre></td></tr></table></figure>
+
+<h3 id="销毁画布"><a href="#销毁画布" class="headerlink" title="销毁画布"></a>销毁画布</h3><p>当图像处理完成后，可以使用imagedestroy()函数销毁图像资源来释放内存。</p>
+<h3 id="导入外部画布"><a href="#导入外部画布" class="headerlink" title="导入外部画布"></a>导入外部画布</h3><p>在GD库中，有一组专门用于导入外部图像的函数：</p>
+<ul>
+<li>imagecreatefromgif():创建画布并从GIF文件或URL载入一副图像</li>
+<li>imagecreatefromjpeg():创建画布并从JPEG文件或URL载入一副图像</li>
+<li>imagecreatefrompng():创建画布并从PNG文件或URL载入一副图像</li>
+<li>imagecreatefromwbmp():创建画布并从WBMP文件或URL载入一副图像</li>
+<li>imagecreatefromstring():创建画布并从字符串中的图像流新建一幅图像</li>
+</ul>
+<h3 id="输出图像"><a href="#输出图像" class="headerlink" title="输出图像"></a>输出图像</h3><p>PHP允许将图像以不同格式输出，而且每个格式都有专门的函数输出：</p>
+<ul>
+<li>imagegif():以GIF格式将图像输出到浏览器或文件中。</li>
+<li>imagejepg():以JEPG格式将图像输出到浏览器或文件中。</li>
+<li>imagepeng():以PENG格式将图像输出到浏览器或文件中。</li>
+<li>imagewbmp():以WBMP格式将图像输出到浏览器或文件中。</li>
+</ul>
+<h3 id="分配颜色"><a href="#分配颜色" class="headerlink" title="分配颜色"></a>分配颜色</h3><p>GD库提供了3个有关颜色设置的函数：</p>
+<ul>
+<li>imagecolorallocate():用于为图像分配颜色</li>
+<li>imagecolorallocatealpha():用于为图像分配带透明度的颜色</li>
+<li>imagecolorallocate():取消以上由两种函数为图像分配的颜色</li>
+</ul>
+<h3 id="绘制基本几何图形"><a href="#绘制基本几何图形" class="headerlink" title="绘制基本几何图形"></a>绘制基本几何图形</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>imageline()</td>
+<td>绘制线段</td>
+</tr>
+<tr>
+<td>imagearc()</td>
+<td>绘制圆弧</td>
+</tr>
+<tr>
+<td>imagerectangle()</td>
+<td>绘制矩形</td>
+</tr>
+</tbody></table>
+<h3 id="图像填充"><a href="#图像填充" class="headerlink" title="图像填充"></a>图像填充</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>imagefill()</td>
+<td>图像区域填充</td>
+</tr>
+<tr>
+<td>imagefilledarc()</td>
+<td>绘制一个椭圆弧并对其填充</td>
+</tr>
+<tr>
+<td>imagefilledellipse()</td>
+<td>绘制一个椭圆并对其填充</td>
+</tr>
+<tr>
+<td>imagefilledrectangle()</td>
+<td>绘制一个矩形并对其填充</td>
+</tr>
+<tr>
+<td>imagefilledpolygon()</td>
+<td>绘制一个多边形并对其填充</td>
+</tr>
+</tbody></table>
+<h3 id="在图像中添加文字"><a href="#在图像中添加文字" class="headerlink" title="在图像中添加文字"></a>在图像中添加文字</h3><ul>
+<li>imagestring():在图像中添加字符串</li>
+<li>imagettftext():使用TrueType字体向图像中输入文字</li>
+</ul>
+<h3 id="拷贝图像"><a href="#拷贝图像" class="headerlink" title="拷贝图像"></a>拷贝图像</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getimagesize()</td>
+<td>获取图像的尺寸</td>
+</tr>
+<tr>
+<td>imagecopy()</td>
+<td>拷贝图像或图像的一部分</td>
+</tr>
+<tr>
+<td>imagecopyresized()</td>
+<td>拷贝图像或图像的一部分，并调整大小</td>
+</tr>
+<tr>
+<td>imagecopymerge()</td>
+<td>拷贝并合成图像的一部分</td>
+</tr>
+</tbody></table>
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://yoursite.com/2020/03/24/PHP-11/">http://yoursite.com/2020/03/24/PHP-11/</a></p><p>版权声明: 转载请注明出处呀!!</p></blockquote></div><div class="tags"><a href="/tags/PHP/">PHP</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/03/24/PHP-12/" class="pre">PHP与Web页面交互</a><a href="/2020/03/24/PHP-10/" class="next">PHP文件目录的操作</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建画布"><span class="toc-text">创建画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#销毁画布"><span class="toc-text">销毁画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入外部画布"><span class="toc-text">导入外部画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出图像"><span class="toc-text">输出图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分配颜色"><span class="toc-text">分配颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制基本几何图形"><span class="toc-text">绘制基本几何图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像填充"><span class="toc-text">图像填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在图像中添加文字"><span class="toc-text">在图像中添加文字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝图像"><span class="toc-text">拷贝图像</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-18/">PHP数组函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-17/">PHP日期时间函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-16/">PHP数字函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-15/">PHP——PDO</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-14/">PHP魔术方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-13/">PHP面对对象程序设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-12/">PHP与Web页面交互</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-11/">PHP图形图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-10/">PHP文件目录的操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/24/PHP-09/">PHP文件系统操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">19</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
