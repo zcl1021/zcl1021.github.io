@@ -1,4 +1,7 @@
 /* reset */
+html {
+  -webkit-filter: grayscale(100%);
+}
 body,
 dl,
 dt,
