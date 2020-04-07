@@ -1,0 +1,369 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>CSS大部分属性汇总 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">CSS大部分属性汇总</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章时间轴</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">CSS大部分属性汇总</h1><div class="post-meta"><a href="/2020/04/07/css-3/#comments" class="comment-count"></a><p><span class="date">Apr 07, 2020</span><span><a href="/categories/CSS/" class="category">CSS</a></span></p></div><div class="post-content"><h3 id="背景类属性"><a href="#背景类属性" class="headerlink" title="背景类属性"></a>背景类属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">background-color    背景颜色</span><br><span class="line">background-image    背景图片</span><br><span class="line">background-repeat   背景重复</span><br><span class="line">background-attachment   </span><br><span class="line">background-position 背景定位</span><br></pre></td></tr></table></figure>
+
+<h3 id="文本格式类属性"><a href="#文本格式类属性" class="headerlink" title="文本格式类属性"></a>文本格式类属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>设置文本颜色</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>设置文本方向。</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>设置字符间距</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>设置行高</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>对齐元素中的文本</td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>向文本添加修饰</td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>缩进元素中文本的首行</td>
+</tr>
+<tr>
+<td>text-shadow</td>
+<td>设置文本阴影</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>控制文本大小写转换</td>
+</tr>
+<tr>
+<td>unicode-bidi</td>
+<td>设置或返回文本是否被重写</td>
+</tr>
+<tr>
+<td>vertical-align</td>
+<td>设置元素的垂直对齐</td>
+</tr>
+<tr>
+<td>white-space</td>
+<td>设置元素中空白的处理方式</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>设置字间距</td>
+</tr>
+</tbody></table>
+<h3 id="字体类属性"><a href="#字体类属性" class="headerlink" title="字体类属性"></a>字体类属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>font</td>
+<td>在一个声明中设置所有的字体属性</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>指定文本的字体系列</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>指定文本的字体大小</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>指定文本的字体样式</td>
+</tr>
+<tr>
+<td>font-variant</td>
+<td>以小型大写字体或者正常字体显示文本。</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>指定字体的粗细。</td>
+</tr>
+</tbody></table>
+<h3 id="链接的四种状态-也叫伪类选择器"><a href="#链接的四种状态-也叫伪类选择器" class="headerlink" title="链接的四种状态(也叫伪类选择器)"></a>链接的四种状态(也叫伪类选择器)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a:link - 正常，未访问过的链接</span><br><span class="line">a:visited - 用户已访问过的链接</span><br><span class="line">a:hover - 当用户鼠标放在链接上时</span><br><span class="line">a:active - 链接被点击的那一刻</span><br></pre></td></tr></table></figure>
+
+<h3 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>list-style</td>
+<td>简写属性。用于把所有用于列表的属性设置于一个声明中</td>
+</tr>
+<tr>
+<td>list-style-image</td>
+<td>将图象设置为列表项标志。</td>
+</tr>
+<tr>
+<td>list-style-position</td>
+<td>设置列表中列表项标志的位置。</td>
+</tr>
+<tr>
+<td>list-style-type</td>
+<td>设置列表项标志的类型。</td>
+</tr>
+</tbody></table>
+<h3 id="边框属性"><a href="#边框属性" class="headerlink" title="边框属性"></a>边框属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-style属性用来定义边框的样式</span><br><span class="line">border-width 属性为边框指定宽度。</span><br><span class="line">border-color属性为边框指定颜色</span><br></pre></td></tr></table></figure>
+
+<h3 id="轮廓属性"><a href="#轮廓属性" class="headerlink" title="轮廓属性"></a>轮廓属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">outline-color	设置轮廓的颜色</span><br><span class="line">outline-style	设置轮廓的样式	</span><br><span class="line">outline-width	设置轮廓的宽度</span><br></pre></td></tr></table></figure>
+
+<h3 id="内边距与外边距"><a href="#内边距与外边距" class="headerlink" title="内边距与外边距"></a>内边距与外边距</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">margin  外边距</span><br><span class="line">padding 内边距</span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS尺寸属性"><a href="#CSS尺寸属性" class="headerlink" title="CSS尺寸属性"></a>CSS尺寸属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>height</td>
+<td>设置元素的高度。</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>设置行高。</td>
+</tr>
+<tr>
+<td>max-height</td>
+<td>设置元素的最大高度。</td>
+</tr>
+<tr>
+<td>max-width</td>
+<td>设置元素的最大宽度。</td>
+</tr>
+<tr>
+<td>min-height</td>
+<td>设置元素的最小高度。</td>
+</tr>
+<tr>
+<td>min-width</td>
+<td>设置元素的最小宽度。</td>
+</tr>
+<tr>
+<td>width</td>
+<td>设置元素的宽度。</td>
+</tr>
+</tbody></table>
+<h3 id="CSS控制元素显示隐藏的两个属性"><a href="#CSS控制元素显示隐藏的两个属性" class="headerlink" title="CSS控制元素显示隐藏的两个属性"></a>CSS控制元素显示隐藏的两个属性</h3><h4 id="visibility属性"><a href="#visibility属性" class="headerlink" title="visibility属性"></a>visibility属性</h4><table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>visible</td>
+<td>默认值。元素是可见的。</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>元素是不可见的。</td>
+</tr>
+<tr>
+<td>collapse</td>
+<td>当在表格元素中使用时，此值可删除一行或一列，它不会影响表格的布局。被行或列占据的空间会留给其他内容。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 visibility 属性的值。</td>
+</tr>
+</tbody></table>
+<h4 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h4><table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>此元素不会被显示。</td>
+</tr>
+<tr>
+<td>block</td>
+<td>此元素将显示为块级元素，此元素前后会带有换行符。</td>
+</tr>
+<tr>
+<td>inline</td>
+<td>默认。此元素会被显示为内联元素，元素前后没有换行符。</td>
+</tr>
+<tr>
+<td>inline-block</td>
+<td>行内块元素。（CSS2.1 新增的值）</td>
+</tr>
+<tr>
+<td>list-item</td>
+<td>此元素会作为列表显示。</td>
+</tr>
+<tr>
+<td>run-in</td>
+<td>此元素会根据上下文作为块级元素或内联元素显示。</td>
+</tr>
+<tr>
+<td>compact</td>
+<td>CSS 中有值 compact，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。</td>
+</tr>
+<tr>
+<td>marker</td>
+<td>CSS 中有值 marker，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。</td>
+</tr>
+<tr>
+<td>table</td>
+<td>此元素会作为块级表格来显示，表格前后带有换行符。</td>
+</tr>
+<tr>
+<td>inline-table</td>
+<td>此元素会作为内联表格来显示，表格前后没有换行符。</td>
+</tr>
+<tr>
+<td>table-row-group</td>
+<td>此元素会作为一个或多个行的分组来显示</td>
+</tr>
+<tr>
+<td>table-header-group</td>
+<td>此元素会作为一个或多个行的分组来显示</td>
+</tr>
+<tr>
+<td>table-footer-group</td>
+<td>此元素会作为一个或多个行的分组来显示</td>
+</tr>
+<tr>
+<td>table-row</td>
+<td>此元素会作为一个表格行显示</td>
+</tr>
+<tr>
+<td>table-column-group</td>
+<td>此元素会作为一个或多个列的分组来显示</td>
+</tr>
+<tr>
+<td>table-column</td>
+<td>此元素会作为一个单元格列显示</td>
+</tr>
+<tr>
+<td>table-cell</td>
+<td>此元素会作为一个表格单元格显示</td>
+</tr>
+<tr>
+<td>table-caption</td>
+<td>此元素会作为一个表格标题显示</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 display 属性的值。</td>
+</tr>
+</tbody></table>
+<h3 id="CSS定位属性-此处只列举position"><a href="#CSS定位属性-此处只列举position" class="headerlink" title="CSS定位属性(此处只列举position)"></a>CSS定位属性(此处只列举position)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position属性有五种取值</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>relative</td>
+<td>根据元素位置相对定位</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<code>&lt;html&gt;</code>:</td>
+</tr>
+<tr>
+<td>static</td>
+<td>HTML 元素的默认值，即没有定位，遵循正常的文档流对象。</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>元素的位置相对于浏览器窗口是固定位置。</td>
+</tr>
+<tr>
+<td>sticky</td>
+<td>基于用户的滚动位置来定位。</td>
+</tr>
+</tbody></table>
+<h3 id="CSS溢出属性"><a href="#CSS溢出属性" class="headerlink" title="CSS溢出属性"></a>CSS溢出属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css有一个属性专门控制元素内容溢出的处理：Overflow</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>visible</td>
+<td>默认值。内容不会被修剪，会呈现在元素框之外。</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>内容会被修剪，并且其余内容是不可见的。</td>
+</tr>
+<tr>
+<td>scroll</td>
+<td>内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 overflow 属性的值。</td>
+</tr>
+</tbody></table>
+<h3 id="CSS浮动"><a href="#CSS浮动" class="headerlink" title="CSS浮动"></a>CSS浮动</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clear</td>
+<td>指定不允许元素周围有浮动元素。</td>
+<td>left、right、both、none、inherit</td>
+</tr>
+<tr>
+<td>float</td>
+<td>指定一个盒子（元素）是否可以浮动。</td>
+<td>left、right、none、inherit</td>
+</tr>
+</tbody></table>
+<hr>
+<p>注意事项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要水平居中对齐一个元素, 可以使用 margin: auto;。</span><br></pre></td></tr></table></figure>
+
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://www.zhchenle.cn/2020/04/07/css-3/">http://www.zhchenle.cn/2020/04/07/css-3/</a></p><p>版权声明: 作者不易,转载请注明出处!!</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/07/css-4/" class="pre">CSS不同的样式声明方式</a><a href="/2020/04/07/css-2/" class="next">CSS选择器的分类</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景类属性"><span class="toc-text">背景类属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本格式类属性"><span class="toc-text">文本格式类属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字体类属性"><span class="toc-text">字体类属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接的四种状态-也叫伪类选择器"><span class="toc-text">链接的四种状态(也叫伪类选择器)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表属性"><span class="toc-text">列表属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#边框属性"><span class="toc-text">边框属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#轮廓属性"><span class="toc-text">轮廓属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内边距与外边距"><span class="toc-text">内边距与外边距</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS尺寸属性"><span class="toc-text">CSS尺寸属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS控制元素显示隐藏的两个属性"><span class="toc-text">CSS控制元素显示隐藏的两个属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#visibility属性"><span class="toc-text">visibility属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#display属性"><span class="toc-text">display属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS定位属性-此处只列举position"><span class="toc-text">CSS定位属性(此处只列举position)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS溢出属性"><span class="toc-text">CSS溢出属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS浮动"><span class="toc-text">CSS浮动</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-6/">CSS样式和选择器的优先级</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-5/">CSS组合选择符</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-4/">CSS不同的样式声明方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-3/">CSS大部分属性汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-2/">CSS选择器的分类</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-1/">CSS简介与语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/html-3/">HTML属性及事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/html-2/">HTML标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/html-1/">HTML简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/java-1/">jsp基本语法</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/jsp/" style="font-size: 15px;">jsp</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">30</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
