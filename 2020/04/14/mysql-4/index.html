@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>学会Mysql第三天 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">学会Mysql第三天</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章时间轴</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">学会Mysql第三天</h1><div class="post-meta"><a href="/2020/04/14/mysql-4/#comments" class="comment-count"></a><p><span class="date">Apr 14, 2020</span><span><a href="/categories/MySql/" class="category">MySql</a></span></p></div><div class="post-content"><h4 id="常规查询"><a href="#常规查询" class="headerlink" title="常规查询"></a>常规查询</h4><p>基本语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select 字段名 from 表名 </span><br><span class="line">select * from my_stu;</span><br><span class="line">select name from my_stu;</span><br></pre></td></tr></table></figure>
+
+<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 from 表名 where 条件</span><br></pre></td></tr></table></figure>
+
+<p>例：查询id为2的学生姓名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from my_stu where id &#x3D;1;</span><br></pre></td></tr></table></figure>
+
+<p>where使用时注意事项：</p>
+<ul>
+<li>where 子句可以指定任何条件</li>
+<li>where 字句条件可以是一个，也可以是多个：这些条件可以用and和or连接</li>
+<li>where  子句类似if条件。</li>
+</ul>
+<p>例：查询25~25之间的学生用between</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_stu where age between 15 and 25;</span><br></pre></td></tr></table></figure>
+
+<h4 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h4><p>union 操作符用于合并两个或多个select 语句的结果集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select 字段 from 表1</span><br><span class="line">union</span><br><span class="line">select 字段 from 表2；</span><br></pre></td></tr></table></figure>
+
+<p>union 和union all 的区别：</p>
+<p>union all 显示所有的查询结果</p>
+<p>union 显示删除重复后的结果</p>
+<h4 id="不重复查询"><a href="#不重复查询" class="headerlink" title="不重复查询"></a>不重复查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct 字段 from 表名;</span><br></pre></td></tr></table></figure>
+
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><p>模糊查询，使用like关键字，基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 from 表名 where 字段 like 值；</span><br></pre></td></tr></table></figure>
+
+<p>这里的值是模糊的，需要用到通配符：</p>
+<h6 id="1、“-”的使用"><a href="#1、“-”的使用" class="headerlink" title="1、“%”的使用"></a>1、“%”的使用</h6><p>用来匹配0个或者多个字符，可以匹配任意类型和长度的字符，对长度没有限制。</p>
+<p>例如：查询名字中带有e的学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_stu where name like &#39;%e%&#39;;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2、“-”的使用"><a href="#2、“-”的使用" class="headerlink" title="2、“_”的使用"></a>2、“_”的使用</h6><p>“_”用来匹配任意单个字符，常用来限制表达式的字符长度。</p>
+<p>例如：查询学生姓名以T开头，后面有2个字符的记录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_stu where name like &#39;T__&#39;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="having-语句"><a href="#having-语句" class="headerlink" title="having 语句"></a>having 语句</h4><p>1、having 是在 group by 子句之后：可以针对分组数据进行统计筛选。</p>
+<p>查询班级人数大于等于个的班级：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select class_id,count(*) from my_student group by class_id having count(*)&gt;&#x3D;4</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h4><p>用order by 关键字来进行排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段名 from 表名 where 条件 order by field1 desc&#x2F;asc ,field2 desc&#x2F;asc,...;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">desc:降序</span><br><span class="line">asc:升序--默认</span><br></pre></td></tr></table></figure>
+
+<h4 id="限制查询"><a href="#限制查询" class="headerlink" title="限制查询"></a>限制查询</h4><p>用limit 关键字进行限制查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 limit 起始偏移量，行数</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h4><p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 聚合函数 from 表名 where 条件  group by 分组条件 having 条件；</span><br></pre></td></tr></table></figure>
+
+<p>一些聚合函数</p>
+<p>count() 统计字段数量，不统计NULL。<br>avg() 求平均值<br>sum() 求和<br>max() 求最大值<br>min() 求最小值</p>
+<p>统计公司所有员工的工资（sal）,以及最高和最低工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sum(sal),max(sal),min(sal) from emp;</span><br></pre></td></tr></table></figure>
+
+<p>查询班级人数小于2的班级：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) as num ,cid from student group by cid having num&lt;2;</span><br></pre></td></tr></table></figure>
+
+<p>group by 一旦执行：结果就是只返回一行记录：第一行</p>
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>子查询是嵌套查询下层的程序模块。当一个查询是另一个查新的条件时，成为子查询</p>
+<p>指在一条select语句中，嵌入另外一条select语句，那么被嵌入的select语句称为子查询</p>
+<h4 id="主查询"><a href="#主查询" class="headerlink" title="主查询"></a>主查询</h4><p>主查询指的是主要查询的查询对象，第一条select语句，确定了用户所有获取的数据目标</p>
+<h4 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h4><p>子查询得到的结果是一个数据（一行一列）</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 数据源 where 条件判断 &#x3D;&#x2F;&lt;&gt; （select 字段名 from 数据源 where 条件判断）</span><br></pre></td></tr></table></figure>
+
+<p>知道一个学生的名字：小猪，想知道他在哪个班级（班级名字）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_class where class_id&#x3D;(select class_id from my_student where stu_name &#x3D;&#39;小猪&#39;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a>行子查询</h4><p>得到的结果是一行多列</p>
+<p>行元素：字段元素是指一个字段对应的值，行元素对应的是多个字段：多个字段合起来作为一个元素参与运算，称之为行元素</p>
+<p>基本语法：</p>
+<p>主查询 where 条件[（构造一个行元素）]=（行子查询）;</p>
+<p>获取班级上年龄最大，且身高最高的学生：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student where (stu_age,stu_height) &#x3D;  (select max(stu_age),max(stu_heigh)from my_student);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a>列子查询</h4><p>得到的结果是一列数据（一列多行）</p>
+<p>基本语法：</p>
+<p>主查询  where 条件 in (列子查询);</p>
+<p>获取已经有学生在班的所有的班级名字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name from my_class where class_id in (select class_id from my_student);</span><br></pre></td></tr></table></figure>
+
+<h4 id="表子查询"><a href="#表子查询" class="headerlink" title="表子查询"></a>表子查询</h4><p>得到结果是多行多列。</p>
+<p>行子查询用于where条件判断：where子查询</p>
+<p>表子查询是用于from数据源：from 子查询</p>
+<p>基本语法：</p>
+<p>select 字段表 from （表子查询）as 别名 [where/group  by/having/order by/limit]</p>
+<p>获取每个班上最高身高的学生（一个）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from (select * from my_student order by stu_height desc)  as temp group by class_id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子查询中特定关键字的使用"><a href="#子查询中特定关键字的使用" class="headerlink" title="子查询中特定关键字的使用"></a>子查询中特定关键字的使用</h4><h6 id="in"><a href="#in" class="headerlink" title="in"></a>in</h6><p>主查询 where 条件 in (列子查询);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student where class_id in (select classs_id from my_class);</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="any"><a href="#any" class="headerlink" title="any"></a>any</h6><p>任意一个：</p>
+<p>=any（列子查询):条件在查询结果中有任意一个匹配即可，等价于in</p>
+<p>&lt;&gt;any (列子查询):条件在查询结果中不等于任意一个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student where class_id any (select classs_id from my_class);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student where class_id &lt;&gt; any (select classs_id from my_class);</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="some"><a href="#some" class="headerlink" title="some"></a>some</h6><p>与any完全一样.</p>
+<h6 id="all"><a href="#all" class="headerlink" title="all"></a>all</h6><p>全部：</p>
+<p>=all(列子查询):等于里面所有</p>
+<p>&lt;&gt;all(列子查询):不等于里面所有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student where class_id &#x3D; all (select classs_id from my_class);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student where class_id &lt;&gt; all (select classs_id from my_class);</span><br></pre></td></tr></table></figure>
+
+<p>如果对应的匹配字段有null,那么不参与匹配</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>常见的三个子查询：</p>
+<p>标量子查询、列子查询和行子查询：都属于where子查询</p>
+<p>在select语句中，如果from子句引用了多个表源或试图，则可以用join关键字连接</p>
+<h4 id="1、内连接"><a href="#1、内连接" class="headerlink" title="1、内连接"></a>1、内连接</h4><p>内连接：inner join，从一张表中取出所有的记录去另外一张表中匹配，利用匹配条件</p>
+<p>进行匹配。</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表1[inner] join 表2 on 匹配条件</span><br></pre></td></tr></table></figure>
+
+<p>1、如果内连接没有条件（允许），那么就是交叉连接</p>
+<p>2.使用匹配条件进行匹配</p>
+<p>3、因为表的设计通常容易产生同名字段，尤其是ID，为了避免重名出现错误，通常</p>
+<p>使用表名.字段名,确保唯一性.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student inner join my_class on my_student.class_id&#x3D;my_class</span><br></pre></td></tr></table></figure>
+
+<p>4、通常，如果条件中使用对应的表名，而表名通常比较长，所以可以通过表别名来简化</p>
+<p>5、内连接匹配的时候，必须保证匹配到才保存</p>
+<p>6、内连接可以在数据匹配完成后，使用where条件来限制，效果与on一样（推荐使用on）.</p>
+<h4 id="using-关键字"><a href="#using-关键字" class="headerlink" title="using 关键字"></a>using 关键字</h4><p>是在连接查询中用来代替对应的on关键字的，进行条件匹配</p>
+<p>1、在连接查询时，使用on的地方用using代替</p>
+<p>2、使用using的前提是对应的两张表连接的字段是同名</p>
+<p>3、如果using关键字，那么对应的同名字段，最终在结果中只会保留一个</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表1[inner,left,right] join 表2 using (同名字段列表)&#x2F;&#x2F;连接字段</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student a left join my_class b on a.class_id&#x3D;b.class_id;</span><br><span class="line">select * from my_student left join my_class using(class_id)</span><br></pre></td></tr></table></figure>
+
+<h4 id="交叉连接"><a href="#交叉连接" class="headerlink" title="交叉连接"></a>交叉连接</h4><p>交叉连接：将两张表的数据与另外一张表彼此交叉。</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表1 cross join 表2；</span><br></pre></td></tr></table></figure>
+
+<h4 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h4><p>outer join,按照某一张表作为主表（表中所有记录在最后都会保留），根据条件去连接另外一张表</p>
+<p>外连接分为两</p>
+<p>种：左外连接（left join）,右连接（right join）</p>
+<p>左连接：左表是主表有连接：有表是主表</p>
+<p>1、确定连接主表：左连接就是 left join 左边的表为主表；right join 就是右边为主表</p>
+<p>2、拿主表的每一条记录，去匹配另外一张表的每一条记录</p>
+<p>3、如果满足匹配条件：保留；不满足不保留。</p>
+<p>4、如果主表记录在从表中一条都没有匹配成功，那么也要保留该记录，从表对应的字段值都为null;</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">左连接：主表 left join 从表 on 连接条件;</span><br><span class="line">右连接: 主表 right join 从表 On 连接条件;</span><br></pre></td></tr></table></figure>
+
+<p>左连接对应的主表数据在左边；右连接对应的主表数据在右边；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_stydent as s lefy join my_clas c on s.class_id &#x3D;c.class_id;</span><br></pre></td></tr></table></figure>
+
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://www.zhchenle.cn/2020/04/14/mysql-4/">http://www.zhchenle.cn/2020/04/14/mysql-4/</a></p><p>版权声明: 作者不易,转载请注明出处!!</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/13/mysql-3/" class="next">学会Mysql第三天</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#常规查询"><span class="toc-text">常规查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#条件查询"><span class="toc-text">条件查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#联合查询"><span class="toc-text">联合查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不重复查询"><span class="toc-text">不重复查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模糊查询"><span class="toc-text">模糊查询</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、“-”的使用"><span class="toc-text">1、“%”的使用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、“-”的使用"><span class="toc-text">2、“_”的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#having-语句"><span class="toc-text">having 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#排序查询"><span class="toc-text">排序查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限制查询"><span class="toc-text">限制查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚合"><span class="toc-text">聚合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#子查询"><span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主查询"><span class="toc-text">主查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标量子查询"><span class="toc-text">标量子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行子查询"><span class="toc-text">行子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列子查询"><span class="toc-text">列子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表子查询"><span class="toc-text">表子查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#子查询中特定关键字的使用"><span class="toc-text">子查询中特定关键字的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#in"><span class="toc-text">in</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#any"><span class="toc-text">any</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#some"><span class="toc-text">some</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#all"><span class="toc-text">all</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结："><span class="toc-text">总结：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1、内连接"><span class="toc-text">1、内连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#using-关键字"><span class="toc-text">using 关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#交叉连接"><span class="toc-text">交叉连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外连接"><span class="toc-text">外连接</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/14/mysql-4/">学会Mysql第三天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/13/mysql-3/">学会Mysql第三天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/10/mysql-2/">学会Mysql第二天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/10/mysql-1/">学会Mysql第一天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-5/">从句的分类与做题方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-4/">定语从句</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-3/">名词性从句</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-2/">句子成分（枝干）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-1/">句子成分(主干部分)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/07/css-6/">CSS样式和选择器的优先级</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySql/">MySql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD%E7%AC%94%E8%AE%B0/">英语笔记</a><span class="category-list-count">5</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/jsp/" style="font-size: 15px;">jsp</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">39</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
