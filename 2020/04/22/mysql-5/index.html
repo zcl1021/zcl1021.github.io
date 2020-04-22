@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="张辰磊的博客"><meta name="keywords" content="谢谢你,赠我空欢喜"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>学习mysql第五天 | 白胡杨同学</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">学习mysql第五天</h1><a id="logo" href="/.">白胡杨同学</a><p class="description">总之岁月漫长,然而值的等待。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章时间轴</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">学习mysql第五天</h1><div class="post-meta"><a href="/2020/04/22/mysql-5/#comments" class="comment-count"></a><p><span class="date">Apr 22, 2020</span><span><a href="/categories/MySql/" class="category">MySql</a></span></p></div><div class="post-content"><p>在select语句中，如果from子句引用了多个表源或试图，则可以用join关键字连接</p>
+<h4 id="1、内连接"><a href="#1、内连接" class="headerlink" title="1、内连接"></a>1、内连接</h4><p>内连接：inner join，从一张表中取出所有的记录去另外一张表中匹配，利用匹配条件</p>
+<p>进行匹配。</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表1[inner] join 表2 on 匹配条件</span><br></pre></td></tr></table></figure>
+
+<p>1、如果内连接没有条件（允许），那么就是交叉连接</p>
+<p>2.使用匹配条件进行匹配</p>
+<p>3、因为表的设计通常容易产生同名字段，尤其是ID，为了避免重名出现错误，通常</p>
+<p>使用表名.字段名,确保唯一性.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student inner join my_class on my_student.class_id&#x3D;my_class</span><br></pre></td></tr></table></figure>
+
+<p>4、通常，如果条件中使用对应的表名，而表名通常比较长，所以可以通过表别名来简化</p>
+<p>5、内连接匹配的时候，必须保证匹配到才保存</p>
+<p>6、内连接可以在数据匹配完成后，使用where条件来限制，效果与on一样（推荐使用on）.</p>
+<h4 id="using-关键字"><a href="#using-关键字" class="headerlink" title="using 关键字"></a>using 关键字</h4><p>是在连接查询中用来代替对应的on关键字的，进行条件匹配</p>
+<p>1、在连接查询时，使用on的地方用using代替</p>
+<p>2、使用using的前提是对应的两张表连接的字段是同名</p>
+<p>3、如果using关键字，那么对应的同名字段，最终在结果中只会保留一个</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表1[inner,left,right] join 表2 using (同名字段列表)&#x2F;&#x2F;连接字段</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from my_student a left join my_class b on a.class_id&#x3D;b.class_id;</span><br><span class="line">select * from my_student left join my_class using(class_id)</span><br></pre></td></tr></table></figure>
+
+<h4 id="交叉连接"><a href="#交叉连接" class="headerlink" title="交叉连接"></a>交叉连接</h4><p>交叉连接：将两张表的数据与另外一张表彼此交叉。</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表1 cross join 表2；</span><br></pre></td></tr></table></figure>
+
+<h4 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h4><p>outer join,按照某一张表作为主表（表中所有记录在最后都会保留），根据条件去连接另外一张表</p>
+<p>外连接分为两</p>
+<p>种：左外连接（left join）,右连接（right join）</p>
+<p>左连接：左表是主表有连接：有表是主表</p>
+<p>1、确定连接主表：左连接就是 left join 左边的表为主表；right join 就是右边为主表</p>
+<p>2、拿主表的每一条记录，去匹配另外一张表的每一条记录</p>
+<p>3、如果满足匹配条件：保留；不满足不保留。</p>
+<p>4、如果主表记录在从表中一条都没有匹配成功，那么也要保留该记录，从表对应的字段值都为null;</p>
+<p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">左连接：主表 left join 从表 on 连接条件;</span><br><span class="line">右连接: 主表 right join 从表 On 连接条件;</span><br></pre></td></tr></table></figure>
+
+<p>左连接对应的主表数据在左边；右连接对应的主表数据在右边；</p>
+<h4 id="事务概念"><a href="#事务概念" class="headerlink" title="事务概念"></a>事务概念</h4><p>事务就是有一组SQL语句组成的业务逻辑，这组语句要么全执行，要么全不执行，不存在部分执行的情况。</p>
+<h4 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h4><p>基本原理：Mysql 允许将事务 统一进行管理（存储引擎INNODB），将用户所做的操作，暂时保存起来，不直接放到数据表（更新），等到用于确认结果之后再进行操作</p>
+<p>事务在mysql中通常是自动提交，但是也可以使用手动提交</p>
+<h4 id="事务特点"><a href="#事务特点" class="headerlink" title="事务特点"></a>事务特点</h4><h6 id="1、原子性"><a href="#1、原子性" class="headerlink" title="1、原子性"></a>1、原子性</h6><p>事务从start transaction 起到提交事务（commit 或者 rollback），要么所有操作都成功，要么就是所有操作都失败；</p>
+<h6 id="2、一致性"><a href="#2、一致性" class="headerlink" title="2、一致性"></a>2、一致性</h6><p>数据表中的数据修改，要么是所有操作一次性修改，要么都不修改</p>
+<h6 id="3、隔离性"><a href="#3、隔离性" class="headerlink" title="3、隔离性"></a>3、隔离性</h6><p>如果一个客户端使用事务操作一个数据时候，另外一个客户端不能对该数据进行操作</p>
+<h6 id="4、持久性"><a href="#4、持久性" class="headerlink" title="4、持久性"></a>4、持久性</h6><p>事务一旦提交，他对数据库中数据的改变是永久性的。</p>
+<h4 id="自动事务"><a href="#自动事务" class="headerlink" title="自动事务"></a>自动事务</h4><p>自动事务：autocommit，当客户端发送一条sql指令给服务器时候，服务器在执行之后需，不用等待用户反馈结果，会自动将结果同步到数据表</p>
+<p>证明:利用两个客户端，一个客户端执行SQL指令，另外一个客户端查看执行结果。</p>
+<p>自动事务：系统做了额外的步骤来帮助用户操作，系统是通过变量来控制的。</p>
+<h6 id="查看数据库是否开启自动功能："><a href="#查看数据库是否开启自动功能：" class="headerlink" title="查看数据库是否开启自动功能："></a>查看数据库是否开启自动功能：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#39;autocommit&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>在默认情况下，如果开启了自动提交功能，<strong>则此时返回的结果为ON；</strong></p>
+<h6 id="关闭自动提交功能"><a href="#关闭自动提交功能" class="headerlink" title="关闭自动提交功能"></a>关闭自动提交功能</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set autocommit &#x3D; 0;</span><br></pre></td></tr></table></figure>
+
+<h6 id="执行命令手动进行事务提交："><a href="#执行命令手动进行事务提交：" class="headerlink" title="执行命令手动进行事务提交："></a>执行命令手动进行事务提交：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commit;</span><br></pre></td></tr></table></figure>
+
+<h6 id="事务回滚"><a href="#事务回滚" class="headerlink" title="事务回滚"></a>事务回滚</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rollback;</span><br></pre></td></tr></table></figure>
+
+<h4 id="手动事务"><a href="#手动事务" class="headerlink" title="手动事务"></a>手动事务</h4><p>手动事务：不管是开始还是过程还是结束都需要用户，手动的发送事务操作指令来实现。</p>
+<h6 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start transaction;</span><br></pre></td></tr></table></figure>
+
+<h6 id="执行事务"><a href="#执行事务" class="headerlink" title="执行事务"></a>执行事务</h6><p>将多个连续的但是是一个整体的sql指令，逐一执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="提交事务"><a href="#提交事务" class="headerlink" title="提交事务"></a>提交事务</h6><p>确认提交：commit,数据写到数据表（清空事务日志）</p>
+<p>回滚操作：rollback，所有数据无效并清空</p>
+<h6 id="回滚点"><a href="#回滚点" class="headerlink" title="回滚点"></a>回滚点</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">回滚点：savepoint</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">增加回滚点：savepoint 回滚点名字&#x2F;&#x2F;字母数字和下划线构成</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">回到回滚点：rollback to 回滚点名字</span><br></pre></td></tr></table></figure>
+
+<p>注意：在一个事务处理中，如果有很多个步骤，那么可以设置多个回滚点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from my_stydent as s lefy join my_clas c on s.class_id &#x3D;c.class_id;</span><br></pre></td></tr></table></figure>
+
+</div><div class="post-copyright"><blockquote><p>原文作者: 张辰磊</p><p>原文链接: <a href="http://www.zhchenle.cn/2020/04/22/mysql-5/">http://www.zhchenle.cn/2020/04/22/mysql-5/</a></p><p>版权声明: 作者不易,转载请注明出处!!</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/04/16/jsp-2/" class="next">jsp无法正常加载CSS样式</a></div><div id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC80OTIxNi8yNTcxMA=="></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、内连接"><span class="toc-text">1、内连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#using-关键字"><span class="toc-text">using 关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#交叉连接"><span class="toc-text">交叉连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外连接"><span class="toc-text">外连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务概念"><span class="toc-text">事务概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本原理"><span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务特点"><span class="toc-text">事务特点</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、原子性"><span class="toc-text">1、原子性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、一致性"><span class="toc-text">2、一致性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、隔离性"><span class="toc-text">3、隔离性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、持久性"><span class="toc-text">4、持久性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动事务"><span class="toc-text">自动事务</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#查看数据库是否开启自动功能："><span class="toc-text">查看数据库是否开启自动功能：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#关闭自动提交功能"><span class="toc-text">关闭自动提交功能</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#执行命令手动进行事务提交："><span class="toc-text">执行命令手动进行事务提交：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#事务回滚"><span class="toc-text">事务回滚</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#手动事务"><span class="toc-text">手动事务</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#开启事务"><span class="toc-text">开启事务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#执行事务"><span class="toc-text">执行事务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#提交事务"><span class="toc-text">提交事务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#回滚点"><span class="toc-text">回滚点</span></a></li></ol></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/mysql-5/">学习mysql第五天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/16/jsp-2/">jsp无法正常加载CSS样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/14/mysql-4/">学会Mysql第四天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/13/mysql-3/">学会Mysql第三天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/10/mysql-2/">学会Mysql第二天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/10/mysql-1/">学会Mysql第一天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-5/">从句的分类与做题方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-4/">定语从句</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-3/">名词性从句</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/08/english-2/">句子成分（枝干）</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySql/">MySql</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD%E7%AC%94%E8%AE%B0/">英语笔记</a><span class="category-list-count">5</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" style="font-size: 15px;">问题解决</a> <a href="/tags/jsp/" style="font-size: 15px;">jsp</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">41</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/chaooo/hexo-theme-BlueLake" title="BlueLake主题" target="_blank">BlueLake主题</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p><span> Copyright &copy;<a href="/." rel="nofollow">张辰磊.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2199c4844313f2f07341e9f043b1edbc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script>(function(d, s) {
+  var j, e = d.getElementsByTagName('body')[0];
+  if (typeof LivereTower === 'function') { return; }
+  j = d.createElement(s);
+  j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+  j.async = true;
+  e.appendChild(j);
+})(document, 'script');
+</script></body></html>
